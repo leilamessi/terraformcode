@@ -4,7 +4,7 @@ resource "aws_lightsail_instance" "centos_server" {
   name              = "centos-server"
   availability_zone = "us-east-1a"  
   blueprint_id      = "centos_7_1901_01"
-
+   bundle_id         = "nano_2_0"
   user_data = <<-USERDATA
     #!/bin/bash
     sudo yum update -y
@@ -21,6 +21,6 @@ resource "aws_lightsail_instance" "centos_server" {
     USERDATA
 }
 
-output "public_ip" {
+output "public_ip_1" {
   value = aws_lightsail_instance.centos_server.public_ip_address
 }
